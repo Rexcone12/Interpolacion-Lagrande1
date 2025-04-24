@@ -1,0 +1,40 @@
+INICIO
+
+// LIMPIEZA DEL ENTORNO
+Limpiar la consola, las variables y cerrar todas las figuras
+
+// DEFINICIÓN DE LA FUNCIÓN: lagrange_interp
+ENTRADA:
+    x_points     ← vector de puntos x conocidos
+    y_points     ← vector de valores y correspondientes
+    x_eval       ← punto en el que se desea interpolar
+    valor_real   ← valor real de la función para calcular error
+
+PROCESO:
+    1. Verificar que x_points y y_points tengan la misma longitud
+    2. Inicializar y_interp ← 0
+    3. n ← longitud de x_points
+
+    4. PARA i DESDE 1 HASTA n HACER
+        a. Inicializar L ← 1
+        b. PARA j DESDE 1 HASTA n HACER
+            SI j ≠ i ENTONCES
+                L ← L * (x_eval - x_points[j]) / (x_points[i] - x_points[j])
+        c. y_interp ← y_interp + y_points[i] * L
+
+    5. Calcular el error porcentual relativo:
+       error ← ABS((y_interp - valor_real) / valor_real) * 100
+
+SALIDA:
+    Devolver y_interp y error
+
+// PROGRAMA PRINCIPAL
+
+1. Definir los puntos x_points y y_points del primer ejemplo
+2. Definir x_eval y valor_real (usando log(2) para ln(2))
+3. Llamar a lagrange_interp y guardar y1, error1
+4. Mostrar resultados del primer ejemplo
+
+5. Repetir pasos 1-4 con un segundo conjunto de puntos para ejemplo 2
+
+FIN
